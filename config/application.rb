@@ -1,5 +1,15 @@
 require_relative "boot"
 
+# Load private local development variables. Shell environment variables take precedence.
+local_env = File.expand_path("../.env", __dir__)
+if File.file?(local_env)
+  File.foreach(local_env) do |line|
+    next if line.strip.empty? || line.lstrip.start_with?("#")
+    key, value = line.strip.split("=", 2)
+    ENV[key] ||= value if key && value && !key.empty?
+  end
+end
+
 require "rails"
 # Pick the frameworks you want:
 require "active_model/railtie"

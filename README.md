@@ -46,3 +46,9 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+The default development repository is `Moiz1524/triagent-dashboard`; override it with `GITHUB_REPOSITORY` when needed. A GitHub fine-grained PAT with **Issues: Read-only** access is still required by the importer, including for public repositories, so that the same configuration works without changes if the repository becomes private.
+
+## Local environment variables
+
+Triagent automatically loads a local `.env` file when Rails boots. Copy `.env.example` to `.env`, set the real values, and do not commit that file. Shell environment variables take precedence over `.env`.
