@@ -7,7 +7,8 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
-company = Company.find_or_create_by!(name: "Acme Security") { |record| record.github_repository = ENV.fetch("GITHUB_REPOSITORY", "acme/private-repository") }
+company = Company.find_or_create_by!(name: "Acme Security")
+company.update!(github_repository: ENV.fetch("GITHUB_REPOSITORY", "Moiz1524/triagent-dashboard"))
 admin = company.users.find_or_initialize_by(email: "admin@acme.test")
 admin.update!(full_name: "Avery Admin", role: :super_admin, password: "Password123!", password_confirmation: "Password123!")
 reviewer = company.users.find_or_initialize_by(email: "reviewer@acme.test")
