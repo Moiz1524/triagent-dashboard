@@ -1,0 +1,6 @@
+<!DOCTYPE html>
+<html><head><title><%= content_for(:title) || "Triagent" %></title><meta name="viewport" content="width=device-width,initial-scale=1"><%= csrf_meta_tags %><%= csp_meta_tag %><%= stylesheet_link_tag :app, "data-turbo-track": "reload" %><%= javascript_importmap_tags %></head>
+<body>
+<% if current_user %><header class="border-b border-slate-200 bg-white"><div class="mx-auto flex max-w-7xl items-center justify-between px-6 py-4"><%= link_to "TRIAGENT", root_path, class: "text-lg font-black tracking-[0.18em] text-ink" %><div class="flex items-center gap-4 text-sm"><span class="text-slate-500"><%= current_company.name %> · <%= current_user.full_name %></span><%= button_to "Sign out", logout_path, method: :delete, class: "font-semibold text-brand" %></div></div></header><% end %>
+<% if notice || alert %><div class="mx-auto max-w-7xl px-6 pt-4 text-sm <%= alert ? 'text-red-700' : 'text-emerald-700' %>"><%= alert || notice %></div><% end %>
+<main class="mx-auto max-w-7xl px-6 py-8"><%= yield %></main></body></html>

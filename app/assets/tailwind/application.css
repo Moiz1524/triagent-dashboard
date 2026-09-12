@@ -1,0 +1,5 @@
+@import "tailwindcss";
+@theme { --color-ink: #172033; --color-mist: #f6f8fb; --color-brand: #4f46e5; }
+body { @apply bg-mist text-slate-800 antialiased; }
+.card { @apply rounded-2xl border border-slate-200 bg-white shadow-sm; }
+.pill { @apply inline-flex items-center rounded-full px-2.5 py-1 text-xs font-semibold; }
